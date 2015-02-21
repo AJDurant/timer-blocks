@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('timers', ['ngAnimate', 'ngRoute', 'ngMaterial'])
+angular.module('timers', ['timer', 'ngAnimate', 'ngRoute', 'ngMaterial'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {

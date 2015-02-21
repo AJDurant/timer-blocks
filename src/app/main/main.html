@@ -1,35 +1,28 @@
 <div layout="vertical" layout-fill>
 
-  <header ng-include="'components/navbar/navbar.html'"></header>
+    <header ng-include="'components/navbar/navbar.html'"></header>
 
-  <md-content>
-    <section class="jumbotron">
-      <h1>'Allo, 'Allo!</h1>
-      <p class="lead">
-        <img src="assets/images/yeoman.png" alt="I'm Yeoman"><br>
-        Always a pleasure scaffolding your apps.
-      </p>
-      <p><a class="btn" ng-href="#">Splendid!</a></p>
-    </section>
+    <md-content>
 
-    <div class="techs" layout-align="center">
-      <md-card ng-repeat="awesomeThing in awesomeThings | orderBy:'rank'">
-        <div class="thumbnail">
-          <img class="pull-right" ng-src="assets/images/{{awesomeThing.logo}}" alt="{{awesomeThing.title}}">
-          <div class="caption">
-            <h3>{{awesomeThing.title}}</h3>
-            <p>{{awesomeThing.description}}</p>
-            <p><a ng-href="{{awesomeThing.url}}">{{awesomeThing.url}}</a></p>
-          </div>
-        </div>
-      </md-card>
-    </div>
-  </md-content>
+        <section class="time-group" ng-repeat="group in timers">
 
-  <footer>
-    <md-toolbar layout="row" layout-align="center center">
-      <p>With ♥ from <a href="https://twitter.com/Swiip">@Swiip</a></p>
-    </md-toolbar>
-  </footer>
+            <md-toolbar class="md-primary">
+                <div class="md-toolbar-tools">
+                    <h2>{{group.title}}</h2>
+                </div>
+            </md-toolbar>
+
+            <div layout="row" layout-fill layout-margin>
+                <md-card flex ng-repeat="timer in group.times">
+                    <h3>{{timer.title}}</h3>
+                    <h4>
+                        <timer end-time="timer.time">{{hours}}:{{mminutes}}:{{sseconds}}</timer>
+                    </h4>
+                </md-card>
+            </div>
+
+        </section>
+
+    </md-content>
 
 </div>
