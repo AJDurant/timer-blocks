@@ -2,60 +2,141 @@
 
 angular.module('timers')
   .controller('MainCtrl', function ($scope) {
-    $scope.timers = [
+
+    var now = new Date();
+    var year = now.getFullYear();
+    var month = now.getMonth();
+    var day = now.getDate();
+
+    var officerTimes = [
         {
-            'title': 'One',
-            'times': [
-                {
-                  'title': 'Start',
-                  'time': new Date().setHours(12,0,0,0)
-                },
-                {
-                  'title': 'Result',
-                  'time': new Date().setHours(12,1,0,0)
-                },
-                {
-                  'title': 'On Stage',
-                  'time': new Date().setHours(21,2,0,0)
-                },
-                {
-                  'title': 'Speech',
-                  'time': new Date().setHours(21,3,0,0)
-                },
-                {
-                  'title': 'Interview -> YSTV',
-                  'time': new Date().setHours(21,6,0,0)
-                }
-            ]
+            'title': 'Start',
+            'time': 0,
         },
         {
-            'title': 'Two',
-            'times': [
-                {
-                  'title': 'Start',
-                  'time': new Date().setHours(21,10,0,0)
-                },
-                {
-                  'title': 'Result',
-                  'time': new Date().setHours(21,11,0,0)
-                },
-                {
-                  'title': 'On Stage',
-                  'time': new Date().setHours(21,12,0,0)
-                },
-                {
-                  'title': 'Speech',
-                  'time': new Date().setHours(21,13,0,0)
-                },
-                {
-                  'title': 'Interview -> YSTV',
-                  'time': new Date().setHours(21,16,0,0)
-                }
-            ]
+            'title': 'Result Announced',
+            'time': 1000 * 60 * 1,
+        },
+        {
+            'title': 'On Stage',
+            'time': 1000 * 60 * 2,
+        },
+        {
+            'title': 'Speech Done',
+            'time': 1000 * 60 * 3,
+        },
+        {
+            'title': 'Interview Done',
+            'time': 1000 * 60 * 6,
         }
-
     ];
-    angular.forEach($scope.awesomeThings, function(awesomeThing) {
-      awesomeThing.rank = Math.random();
-    });
+    var sabbTimes = [
+        {
+            'title': 'Start',
+            'time': 0,
+        },
+        {
+            'title': 'Result Announced',
+            'time': 1000 * 60 * 1,
+        },
+        {
+            'title': 'On Stage',
+            'time': 1000 * 60 * 2,
+        },
+        {
+            'title': 'Speech Done',
+            'time': 1000 * 60 * 3,
+        },
+        {
+            'title': 'Interview Done',
+            'time': 1000 * 60 * 10,
+        }
+    ];
+
+    $scope.timers = [
+        new (function () {
+            this.title = 'Student Trustee & Senate Rep & Policy Coordinator';
+            this.hour = 21;
+            this.minute = 0;
+            this.time = new Date(year, month, day, this.hour, this.minute);
+            this.times = officerTimes;
+        })(),
+        new (function () {
+            this.title = 'NUS';
+            this.hour = 21;
+            this.minute = 10;
+            this.time = new Date(year, month, day, this.hour, this.minute);
+            this.times = officerTimes;
+        })(),
+        new (function () {
+            this.title = 'Women’s & LGBTQ';
+            this.hour = 21;
+            this.minute = 20;
+            this.time = new Date(year, month, day, this.hour, this.minute);
+            this.times = officerTimes;
+        })(),
+        new (function () {
+            this.title = 'RAG & Volunteering';
+            this.hour = 21;
+            this.minute = 30;
+            this.time = new Date(year, month, day, this.hour, this.minute);
+            this.times = officerTimes;
+        })(),
+        new (function () {
+            this.title = 'International & Env and Ethics';
+            this.hour = 21;
+            this.minute = 40;
+            this.time = new Date(year, month, day, this.hour, this.minute);
+            this.times = officerTimes;
+        })(),
+        new (function () {
+            this.title = 'Disabled & BME';
+            this.hour = 21;
+            this.minute = 50;
+            this.time = new Date(year, month, day, this.hour, this.minute);
+            this.times = officerTimes;
+        })(),
+        new (function () {
+            this.title = 'Welfare';
+            this.hour = 22;
+            this.minute = 15;
+            this.time = new Date(year, month, day, this.hour, this.minute);
+            this.times = sabbTimes;
+        })(),
+        new (function () {
+            this.title = 'Academic';
+            this.hour = 22;
+            this.minute = 30;
+            this.time = new Date(year, month, day, this.hour, this.minute);
+            this.times = sabbTimes;
+        })(),
+        new (function () {
+            this.title = 'Sport';
+            this.hour = 22;
+            this.minute = 45;
+            this.time = new Date(year, month, day, this.hour, this.minute);
+            this.times = sabbTimes;
+        })(),
+        new (function () {
+            this.title = 'Activities';
+            this.hour = 23;
+            this.minute = 0;
+            this.time = new Date(year, month, day, this.hour, this.minute);
+            this.times = sabbTimes;
+        })(),
+        new (function () {
+            this.title = 'President';
+            this.hour = 23;
+            this.minute = 15;
+            this.time = new Date(year, month, day, this.hour, this.minute);
+            this.times = sabbTimes;
+        })(),
+    ];
+
+    $scope.updateTimer = function() {
+        $('timer').each( function() {
+            this.start();
+        });
+    };
+
   });

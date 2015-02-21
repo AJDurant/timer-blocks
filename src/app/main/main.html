@@ -9,14 +9,24 @@
             <md-toolbar class="md-primary">
                 <div class="md-toolbar-tools">
                     <h2>{{group.title}}</h2>
+                    <span flex></span>
+                    <form class="timer-update" ng-submit="updateTimer()">
+                        <md-input-container>
+                            <label>Time:</label>
+                            <input type="time" ng-model="group.time">
+                        </md-input-container>
+                        <md-input-container>
+                            <md-button class="md-raised" type="submit">Update</md-button>
+                        </md-input-container>
+                    </form>
                 </div>
             </md-toolbar>
 
             <div layout="row" layout-fill layout-margin>
-                <md-card flex ng-repeat="timer in group.times">
-                    <h3>{{timer.title}}</h3>
+                <md-card flex ng-repeat="item in group.times">
+                    <h3>{{item.title}}</h3>
                     <h4>
-                        <timer end-time="timer.time">{{hours}}:{{mminutes}}:{{sseconds}}</timer>
+                        <timer class="{{group.ident}}" end-time="group.time.getTime() + item.time">{{hours}}:{{mminutes}}:{{sseconds}}</timer>
                     </h4>
                 </md-card>
             </div>
