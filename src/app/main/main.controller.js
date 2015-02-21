@@ -133,6 +133,11 @@ angular.module('timers')
         })(),
     ];
 
+    $scope.openingTime = new Date(year, month, day, 20, 55);
+    $scope.startTime = new Date(year, month, day, 21, 0);
+    $scope.endTime = new Date(year, month, day, 23, 30);
+
+
     $scope.updateTimer = function() {
         $('timer').each( function() {
             this.start();

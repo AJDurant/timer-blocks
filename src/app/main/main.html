@@ -2,7 +2,7 @@
 
     <header ng-include="'components/navbar/navbar.html'"></header>
 
-    <md-content>
+    <md-content class="page">
 
         <section class="time-group" ng-repeat="group in timers">
 
@@ -16,7 +16,7 @@
                             <input type="time" ng-model="group.time">
                         </md-input-container>
                         <md-input-container>
-                            <md-button class="md-raised" type="submit">Update</md-button>
+                            <md-button class="md-raised" type="submit" aria-label="Update Timer for {{group.title}}">Update</md-button>
                         </md-input-container>
                     </form>
                 </div>

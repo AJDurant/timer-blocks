@@ -1,4 +1,14 @@
 
+header {
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+}
+
+md-content.page {
+    margin-top: 64px;
+}
+
 .timer-update {
     md-button {
         top: 0.5em;

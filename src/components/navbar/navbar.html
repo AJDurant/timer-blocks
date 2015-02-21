@@ -2,7 +2,11 @@
     <div class="md-toolbar-tools">
         <span>ERN Timers</span>
 
-        <span flex></span>
+        <span flex layout="row" layout-align="space-around center">
+            <span flex class="center"><small>Opening:</small> <timer end-time="openingTime">{{hours}}:{{mminutes}}:{{sseconds}}</timer></span>
+            <span flex class="center"><small>Start:</small> <timer end-time="startTime">{{hours}}:{{mminutes}}:{{sseconds}}</timer></span>
+            <span flex class="center"><small>End:</small> <timer end-time="endTime">{{hours}}:{{mminutes}}:{{sseconds}}</timer></span>
+        </span>
 
         <span><timer start-time="1424304000000" interval="1000">{{hhours}}:{{mminutes}}:{{sseconds}}</timer></span>
     </div>
