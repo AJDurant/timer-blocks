@@ -25,9 +25,18 @@
             <div layout="row" layout-fill layout-margin>
                 <md-card flex ng-repeat="item in group.times">
                     <h3>{{item.title}}</h3>
-                    <h4>
-                        <timer class="{{group.ident}}" end-time="group.time.getTime() + item.time">{{hours}}:{{mminutes}}:{{sseconds}}</timer>
-                    </h4>
+                    <div layout="row" layout="column">
+                        <div flex>
+                            <h4>
+                                <timer class="{{group.ident}}" end-time="group.time.getTime() + item.time">{{hours}}:{{mminutes}}:{{sseconds}}</timer>
+                            </h4>
+                        </div>
+                        <div flex>
+                            <h4>
+                                {{group.time.getTime() + item.time | date: "HH:mm"}}
+                            </h4>
+                        </div>
+                    </div>
                 </md-card>
             </div>
 

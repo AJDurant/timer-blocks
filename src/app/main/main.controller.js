@@ -97,7 +97,7 @@ angular.module('timers')
             this.times = officerTimes;
         })(),
         new (function () {
-            this.title = 'Welfare';
+            this.title = 'Activities';
             this.hour = 22;
             this.minute = 15;
             this.time = new Date(year, month, day, this.hour, this.minute);
@@ -111,14 +111,14 @@ angular.module('timers')
             this.times = sabbTimes;
         })(),
         new (function () {
-            this.title = 'Sport';
+            this.title = 'Welfare';
             this.hour = 22;
             this.minute = 45;
             this.time = new Date(year, month, day, this.hour, this.minute);
             this.times = sabbTimes;
         })(),
         new (function () {
-            this.title = 'Activities';
+            this.title = 'Sport';
             this.hour = 23;
             this.minute = 0;
             this.time = new Date(year, month, day, this.hour, this.minute);
@@ -133,7 +133,7 @@ angular.module('timers')
         })(),
     ];
 
-    $scope.openingTime = new Date(year, month, day, 20, 55);
+    $scope.openingTime = new Date(year, month, day, 20, 53);
     $scope.startTime = new Date(year, month, day, 21, 0);
     $scope.endTime = new Date(year, month, day, 23, 30);
 
